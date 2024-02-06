@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, Component , EventEmitter} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { Product } from './models/product';
+import { Product } from './models/product.model';
+import { ProductListComponent } from './product-list/product-list.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet,ProductListComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ]
 })
 export class AppComponent {
   title = 'inventory-app';
@@ -39,6 +43,7 @@ export class AppComponent {
     this.products = [];
   }
   productWasSelected(product: Product): void {
+
     console.log('Product clicked: ', product);
      }
 }
