@@ -46,4 +46,6 @@ export class AppComponent {
 
     console.log('Product clicked: ', product);
      }
+
+ 
 }
